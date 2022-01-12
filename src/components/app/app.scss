@@ -1,0 +1,81 @@
+//variables
+$Color1: #00203FFF;
+$Color2: #ADEFD1FF;
+$fontSize30: 15px;
+
+//mixins
+@mixin mainStyle($color, $fontSize) {
+  background-color: $color;
+  font-size: $fontSize;
+}
+
+//components
+input{
+  @include mainStyle($Color2, $fontSize30);
+  color: $Color1;
+  text-align: center;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+
+
+//style
+.container{
+  background-color: $Color1;
+  color: #42f5dd;
+  margin: 0;
+  text-align: center;
+
+  @media(max-width: 560px) {
+    width: 100%;
+  }
+  header{
+    padding: 10px;
+    h1{
+
+    }
+
+  }
+  main{
+
+    form{
+      display: inline-grid;
+
+      input{
+        @extend input;
+        &::placeholder{
+          color: $Color1;
+          text-align: center;
+        }
+
+      }
+      button{
+        @include mainStyle(#42f5dd, 15px);
+        border: none;
+        margin: 5px;
+      }
+    }
+    .image{
+      img{
+        width: 30%;
+        @media(max-width: 560px) {
+          width: 100%;
+        }
+      }
+    }
+
+
+
+
+  }
+  footer{
+    font-size: 10px;
+    text-align: center;
+    padding: 10px;
+  }
+}
+
+
+
